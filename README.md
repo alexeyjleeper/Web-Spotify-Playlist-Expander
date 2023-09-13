@@ -3,7 +3,7 @@ This is a music discovery tool. This project creates a new custom playlist based
 
 # Home Page
 Allows user to choose a playlist on their Spotify profile to "expand"
-![home page with scrollable playlists list](home.png)
+![home page with scrollable playlists list](screenshots/home.png)
 
 # Customization Page
 Provides user with multiple customization options and specifies limits
