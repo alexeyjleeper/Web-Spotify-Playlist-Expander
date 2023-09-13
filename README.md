@@ -7,13 +7,13 @@ Allows user to choose a playlist on their Spotify profile to "expand"
 
 # Customization Page
 Provides user with multiple customization options and specifies limits
-![alt text](https://github.com/alexeyjleeper/Web-Spotify-PLaylist-Expannder/blob/screenshots/customize.png?raw=true)
+![customization page](screenshots/customize.png)
 
 After hitting submit "playlist name"_expand1 is created on the user's Spotify profile
-![alt text](https://github.com/alexeyjleeper/Web-Spotify-PLaylist-Expannder/blob/screenshots/success.png?raw=true)
+![after customization submit](screenshots/success.png)
 
 Functionality to order multiple expansions of the same playlist
-![alt text](https://github.com/alexeyjleeper/Web-Spotify-PLaylist-Expannder/blob/screenshots/multiple.png?raw=true)
+![multiple expansions with same playlist](screenshots/multiple.png)
 
  # Local Setup:
 1. go to developer.spotify.com and create app with http://127.0.0.1:5000/redirect redirect uri to get required api client id and key used in SEapp.py (lines 245, 246)
