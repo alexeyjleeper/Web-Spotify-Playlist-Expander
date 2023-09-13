@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <link rel="stylesheet"  type="text/css" href="{{url_for('.static', filename='style2.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id ="header">
+        <h1 id="title">
+            Customize
+        </h1>
+    </div>
+    <div id="settings">
+        <div id="box">
+            <form action='/expand' method="post">
+                <div id="name">
+                    <p>
+                        {{pl_data[1]}}
+                    </p>
+                </div>
+                <span id="playlist_data">
+                    <input type="text" name="playlistdata[]" value="{{pl_data[0]}}" style="position: absolute; visibility: hidden; height: 0%;">
+                    <input type="text" name="playlistdata[]" value="{{pl_data[1]}}" style="position: absolute; visibility: hidden; height: 0%;">
+                </span>
+                <div class="minmax">
+                    <span id="tempo">Tempo (0-200 BPM)</span>
+                    <input name="custom[]" id="tmin" class="input" type="number" placeholder="min" value="0">
+                    <input name="custom[]" id="tmax" class="input" type="number" placeholder="max" value="200">
+                </div>
+                <div class="minmax">
+                    <span id="tempo">Popularity (0-100)</span>
+                    <input name="custom[]" id="pmin" class="input" type="number" placeholder="min" value="0">
+                    <input name="custom[]" id="pmax" class="input" type="number" placeholder="max" value="100">
+                </div>
+                <div class="minmax">
+                    <span id="instrumentalness">Instrumentalness (0-10)</span>
+                    <input name="custom[]" id="imin" class="input" type="number" placeholder="min" value="0">
+                    <input name="custom[]" id="imax" class="input" type="number" placeholder="max" value="10">
+                </div>
+                <div class="minmax">
+                    <span id="danceability">Danceability (0-10)</span>
+                    <input name="custom[]" id="dmin" class="input" type="number" placeholder="min" value="0">
+                    <input name="custom[]" id="dmax" class="input" type="number" placeholder="max" value="10">
+                </div>
+                <div class="minmax">
+                    <span id="valence">Valence (range from negative to positive) (0-10)</span>
+                    <input name="custom[]" id="vmin" class="input" type="number" placeholder="min" value="0">
+                    <input name="custom[]" id="vmax" class="input" type="number" placeholder="max" value="10">
+                </div>
+                <div class="minmax">
+                    <span id="sizetitle">Number of songs (1-100)</span>
+                    <input name="custom[]" id="size" class="input" type="number" value="20">
+                </div>
+                <div id="submitbutton">
+                    <input type='submit' id="submit" value='Submit'>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

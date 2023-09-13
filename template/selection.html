@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <link rel="stylesheet"  type="text/css" href="{{url_for('.static', filename='style1.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <span class="home">
+            <h1>
+                Home
+            </h1>
+        </span>
+        <span class="title">
+            <h1>
+                Playlist Expander
+            </h1>
+        </span>
+        <span class="spotify">
+            <h1>
+                with spotify integration
+            </h1>
+        </span>
+        <span class="slogo">
+            <img src="{{url_for('.static', filename='Spotify_Logo_RGB_Green.png')}}" class="logoimg" width="120"> 
+        </span>
+    </div>
+    <div id="content">
+        <div id="playlists">
+            <p id="pltitle">
+                My Playlists
+            </p>
+            <div id="playlistsline">
+            </div>
+            {% for playlist in html_playlist_data %}
+
+            <form action='/customize' method="post">
+                <input type="text" name="selection_data[]" value="{{playlist[0]}}" style="position: absolute; visibility: hidden; height: 0%;">
+                <input type="text" name="selection_data[]" value="{{playlist[1]}}" style="position: absolute; visibility: hidden; height: 0%;">
+                <input type='submit' value="{{playlist[1]}}" class="button">
+            </form>
+
+            {% endfor %}
+        </div>
+        <div id="message">
+            <div id="noti">
+                <p id="notiword">
+                    Notification
+                </p>
+                <div id="notidot">
+                </div>
+            </div>
+            <div id="msgline">
+            </div>
+            <p>
+                {{htmlmsg}}
+            </p>
+        </div>
+    </div>
+</body>
+</html>
