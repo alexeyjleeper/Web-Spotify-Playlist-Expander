@@ -17,8 +17,9 @@ Functionality to order multiple expansions of the same playlist
 
  # Local Setup:
 1. go to developer.spotify.com and create app with http://127.0.0.1:5000/redirect redirect uri to get required api client id and key used in SEapp.py (lines 245, 246)
-2. create venv and install flask and spotify
-3. activate venv and run program
+2. create venv and install flask and spotify, alternatively, install flask and spotify on your system
+3. navigate to directory in the terminal and run: python SEapp.py
+4. open http://127.0.0.1:5000 in browser
 
 built with:
 flask 2.3.3
