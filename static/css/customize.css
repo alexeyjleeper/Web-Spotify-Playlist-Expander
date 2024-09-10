@@ -1,0 +1,226 @@
+body{
+    margin: 0;
+    background: linear-gradient(to top left, #54555B, #1c1d1f);
+    display: flex;
+    align-items: flex-start;
+    width: 100vw;
+    min-height: 100vh;
+    font-family: "League Spartan";
+    overflow-x: hidden;
+}
+
+@media (max-width: 769px) {
+    body {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 1440px) {
+    body {
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 1440px) {
+    body {
+        font-size: 2em;
+    }
+}
+
+#topHalf {
+    min-width: 40%;
+}
+
+@media (max-width: 769px) {
+    #topHalf {
+        width: 100%;
+    }
+}
+
+#navBack {
+    text-decoration: none;
+    margin: 2% 2% 0 2%;
+    font-size: 3em;
+    color: white;
+    transition: ease 0.25s;
+}
+
+#navBack:hover {
+    cursor: pointer;
+    font-size: 3.5em;
+    transition: ease 0.25s;
+}
+
+
+#settings {
+    margin-top: 10px;
+    background-color: #48484e;
+    color: white;
+    margin: 2%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 50px 1px #1c1d1f;
+}
+
+@media (max-width: 769px) {
+    #settings {
+        width: 96%;
+        margin: 2%;
+    }
+}
+
+#settings h2{
+    color: white;
+}
+
+#settings p {
+    margin-top: 0;
+}
+.minmax{
+    margin: 1%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+form {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.input{
+    width: 15%;
+}
+.label {
+    flex: 1;
+}
+.submitButton{
+    height: 30px;
+    min-width: 80px;
+    background-color: #1DB954;
+    color: black;
+    border-width: 0;
+    border-radius: 3px;
+    margin: 3%;
+    border: none;
+    transition: ease 0.25s;
+}
+.submitButton:hover{
+    cursor: pointer;
+    transform: scale(1.07);
+    transition: ease 0.25s;
+}
+
+#recsContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.rec, #recAll {
+    min-height: 10vh;
+    width: 100%;
+    display: grid;
+    place-items: start;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    margin: 0;
+}
+
+.bgBlur {
+    grid-column: 1;
+    grid-row: 1;
+    filter: opacity(3%);
+    position: relative;
+    z-index: 0;
+    background-color: white;
+    overflow: hidden;
+    transition: ease 0.25s;
+    pointer-events: none;
+    width: 98%;
+    height: 90%;
+    margin-top: 1%;
+}
+
+@media (max-width: 769px) {
+    .bgBlur{
+        margin-left: 2%;
+        width: 96%;
+    }
+}
+
+.recContent {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    text-overflow: ellipsis;
+    width: 96%;
+    color: white;
+    margin: 1% 2% 1% 2%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.recContent * {
+    margin: 1%;
+}
+
+.add:hover, #addAll:hover {
+    cursor: pointer;
+}
+
+.add, #addAll {
+    color: white;
+    position: relative;
+    font-size: 2em;
+}
+
+@media (max-width: 769px) {
+    .add, #addAll {
+        top: 3px;
+        font-size: 4.5em;
+    }
+}
+
+.play:hover, #playAll:hover {
+    cursor: pointer;
+}
+
+.play, #playAll {
+    color: white;
+    bottom: 20px;
+}
+
+@media (max-width: 769px) {
+    .play, #playAll {
+        font-size: 2.5em;
+    }
+}
+
+#skip:hover {
+    cursor: pointer;
+}
+
+#skip {
+    letter-spacing: -.3em;
+}
+
+@media (max-width: 769px) {
+    #skip {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 769px) {
+    #recAll p {
+        margin-left: 5%;
+    }
+}

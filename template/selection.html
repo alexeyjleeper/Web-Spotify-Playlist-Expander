@@ -4,61 +4,34 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Document</title>
-    <link rel="stylesheet"  type="text/css" href="{{url_for('.static', filename='style1.css')}}">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  type="text/css" href="{{url_for('.static', filename='css/selection.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="header">
-        <span class="home">
-            <h1>
-                Home
-            </h1>
-        </span>
-        <span class="title">
-            <h1>
-                Playlist Expander
-            </h1>
-        </span>
+        <h id="msg">
+            Select a playlist to expand based on the first five songs
+        </h>
         <span class="spotify">
-            <h1>
+            <p>
                 with spotify integration
-            </h1>
+            </p>
         </span>
-        <span class="slogo">
-            <img src="{{url_for('.static', filename='Spotify_Logo_RGB_Green.png')}}" class="logoimg" width="120"> 
-        </span>
+        <img src="{{url_for('.static', filename='Spotify_Logo_RGB_Green.png')}}" class="logoimg" width="120">
     </div>
     <div id="content">
-        <div id="playlists">
-            <p id="pltitle">
-                My Playlists
-            </p>
-            <div id="playlistsline">
-            </div>
-            {% for playlist in html_playlist_data %}
+        {% for playlist in html_playlist_data %}
 
-            <form action='/customize' method="post">
-                <input type="text" name="selection_data[]" value="{{playlist[0]}}" style="position: absolute; visibility: hidden; height: 0%;">
-                <input type="text" name="selection_data[]" value="{{playlist[1]}}" style="position: absolute; visibility: hidden; height: 0%;">
-                <input type='submit' value="{{playlist[1]}}" class="button">
-            </form>
+        <form action='/customize' method="post">
+            <div class="bgBlur"></div>
+            <input type="hidden" name="id" value="{{playlist[0]}}">
+            <input type="hidden" name="name" value="{{playlist[1]}}">
+            <input type='submit' value="{{playlist[1]}}" class="button">
+        </form>
 
-            {% endfor %}
-        </div>
-        <div id="message">
-            <div id="noti">
-                <p id="notiword">
-                    Notification
-                </p>
-                <div id="notidot">
-                </div>
-            </div>
-            <div id="msgline">
-            </div>
-            <p>
-                {{htmlmsg}}
-            </p>
-        </div>
+        {% endfor %}
     </div>
 </body>
 </html>

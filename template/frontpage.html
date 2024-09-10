@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <link rel="stylesheet"  type="text/css" href="{{url_for('.static', filename='css/frontpage.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img src="{{url_for('.static', filename='otherguy.webp')}}" alt="img"/>
+    <h1>Spotify Playlist Expander</h1>
+    <p>The main functionality is available with a free Spotify account, but 
+       a Spotify Premium account will allow you to instantly listen to new songs in the app</p>
+    <a href="/login" id="login">
+        Login
+    </a>
+</body>
+</html>
