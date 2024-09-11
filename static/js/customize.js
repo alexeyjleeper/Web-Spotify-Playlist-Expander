@@ -1,53 +1,3 @@
-window.onSpotifyWebPlaybackSDKReady = () => {
-    fetch('../token')
-        .then(response => response.json())
-        .then(data => {
-            const token = data.token.access_token;
-            console.log(token);
-            const player = new Spotify.Player({
-                name: 'Playback Client',
-
-                //sdk provides cb method
-                getOAuthToken: cb => {cb(token)}
-            });
-
-            // Error handling
-            player.addListener('initialization_error', ({ message }) => console.error(message));
-            player.addListener('authentication_error', ({ message }) => console.error(message));
-            player.addListener('account_error', ({ message }) => console.error(message));
-            player.addListener('playback_error', ({ message }) => console.log(message));
-
-            player.addListener('ready', ({ device_id }) => {
-                addTrackListeners(player, device_id, token);
-            });
-            
-            try {
-                player.connect();
-                console.log('Spotify Playback initialized');
-            } catch(err) {
-                console.error('Error connecting playback device to Spotify: ', err);
-            }
-            
-            // listener to color the path of the playAll feature
-            player.addListener('player_state_changed', ({
-                    track_window: { current_track }
-                }) => {
-                    document.querySelectorAll('.rec').forEach(element => {
-                        const uri = element.getAttribute('data-uri');
-                        if (uri === current_track.uri) {
-                            element.querySelectorAll('p').forEach(p => {
-                                p.style.color='#1DB954';
-                            })
-
-                        }
-                    });
-                });
-        })
-        .catch(err => {
-            console.log('Error initializing playback object: ', err)
-        });
-}
-
 function addTrackListeners(player, id, token) {
     recsContainer = document.getElementById('recsContainer');
     playlist_id = recsContainer.getAttribute('data-playlist-id');
@@ -201,6 +151,55 @@ function removeEventListeners() {
             element.removeEventListener(type, handler);
         });
     }
+}
+
+window.onSpotifyWebPlaybackSDKReady = () => {
+    fetch('../token')
+        .then(response => response.json())
+        .then(data => {
+            const token = data.token.access_token;
+            const player = new Spotify.Player({
+                name: 'Playback Client',
+
+                //sdk provides cb method
+                getOAuthToken: cb => {cb(token)}
+            });
+
+            // Error handling
+            player.addListener('initialization_error', ({ message }) => console.error(message));
+            player.addListener('authentication_error', ({ message }) => console.error(message));
+            player.addListener('account_error', ({ message }) => console.error(message));
+            player.addListener('playback_error', ({ message }) => console.log(message));
+
+            player.addListener('ready', ({ device_id }) => {
+                addTrackListeners(player, device_id, token);
+            });
+            
+            try {
+                player.connect();
+                console.log('Spotify Playback initialized');
+            } catch(err) {
+                console.error('Error connecting playback device to Spotify: ', err);
+            }
+            
+            // listener to color the path of the playAll feature
+            player.addListener('player_state_changed', ({
+                    track_window: { current_track }
+                }) => {
+                    document.querySelectorAll('.rec').forEach(element => {
+                        const uri = element.getAttribute('data-uri');
+                        if (uri === current_track.uri) {
+                            element.querySelectorAll('p').forEach(p => {
+                                p.style.color='#1DB954';
+                            })
+
+                        }
+                    });
+                });
+        })
+        .catch(err => {
+            console.log('Error initializing playback object: ', err)
+        });
 }
 
 // handle for alive event listeners when user exits
