@@ -1,1 +1,1 @@
-web: gunicorn app:app 8000
+web: gunicorn -c ./gunicorn.conf/py app:create_app()
