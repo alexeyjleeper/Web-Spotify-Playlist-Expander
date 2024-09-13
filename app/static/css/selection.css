@@ -103,7 +103,6 @@ form {
     z-index: 1;
     background-color: darkgrey;
     transition: ease 0.25s;
-    pointer-events: none;
     color: transparent;
     border: none;
 }
@@ -112,7 +111,7 @@ form {
         min-width: 40vw;
     }
 }
-form:hover .button{
+form:hover p{
     cursor: pointer;
     font-size: .6em;
     transition: ease 0.25s;
@@ -126,7 +125,7 @@ form:hover .bgBlur {
 form:hover {
     cursor: pointer;
 }
-.button{
+form p{
     grid-column: 1;
     grid-row: 1;
     color: white;
