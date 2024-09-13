@@ -8,7 +8,7 @@ def get_ip_address(ifname):
     return socket.inet_ntoa(fcntl.ioctl(
         s.fileno(),
         0x89115,
-        struct.pack('256', bytes(ifname[:15], 'utf-8'))
+        struct.pack('256s', bytes(ifname[:15], 'utf-8'))
     )[20: 24])
 
 ip_addr = get_ip_address('eth0')
