@@ -103,7 +103,7 @@ def customize():
                 settings_array[i] = float(settings_array[i])
                 settings_array[i] = settings_array[i]/10
             except:
-                return redirect(url_for('home'))
+                return redirect(url_for('main.home'))
 
             if i < 4 or i == 10:
                 settings_array[i] = int(settings_array[i]*10)
@@ -127,7 +127,7 @@ def customize():
             songs_list = sp.playlist_tracks(playlist_id)['items']
         except Exception as e:
             print('Error contacting spotify API: ', e)
-            return redirect(url_for('home'))
+            return redirect(url_for('main.home'))
         
         # initialize list of the input song ids
         id_list = []
@@ -151,7 +151,7 @@ def customize():
                                           max_valence=vmax)['tracks']
         except Exception as e:
             print('Error contacting spotify API: ', e)
-            return redirect(url_for('home'))
+            return redirect(url_for('main.home'))
         
         # build recs data
         for i in range(len(rec_data)):
