@@ -82,6 +82,17 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
 }
+form {
+    min-width: 25vw;
+    height: 15vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    font-size: 2em;
+    place-items: center;
+    overflow: hidden;
+    z-index: 0;
+}
 .bgBlur {
     grid-column: 1;
     grid-row: 1;
@@ -95,16 +106,6 @@ body{
     pointer-events: none;
     color: transparent;
     border: none;
-}
-form {
-    min-width: 25vw;
-    height: 15vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    font-size: 2em;
-    place-items: center;
-    overflow: hidden;
 }
 @media (max-width: 769px) {
     form {
