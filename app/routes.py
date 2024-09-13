@@ -2,7 +2,7 @@
 import spotipy
 from flask import Blueprint, request, url_for, session, redirect, render_template, jsonify
 from .utils import create_spotify_oauth, get_token
-from . import limiter
+from .limiter_setup import limiter
 
 main = Blueprint('main', __name__)
 

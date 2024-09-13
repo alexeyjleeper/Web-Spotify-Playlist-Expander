@@ -1,14 +1,9 @@
 from flask import Flask, jsonify
 from dotenv import load_dotenv
 from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 from flask_limiter.errors import RateLimitExceeded
 from .routes import main
-
-limiter = Limiter(
-        get_remote_address,
-        default_limits=["5 per 30 seconds"]
-    )
+from .limiter_setup import limiter
 
 def create_app():
     app = Flask(__name__, template_folder = './static/template', static_folder = './static')
