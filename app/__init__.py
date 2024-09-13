@@ -19,3 +19,5 @@ def create_app():
         return "Internal server error", 500
     
     return app
+
+my_app = create_app()
