@@ -24,7 +24,7 @@ def redirect_page():
     code = request.args.get('code')
     token_info = create_spotify_oauth().get_access_token(code)
     session['token_info'] = token_info
-    return redirect(url_for('home'))
+    return redirect(url_for('main.home'))
 
 """
 Description: Retrieves all of the user's playlists and passes them to the html
