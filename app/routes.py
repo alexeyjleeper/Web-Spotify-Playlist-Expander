@@ -1,4 +1,3 @@
-#from socket import INADDR_MAX_LOCAL_GROUP
 import spotipy
 from flask import Blueprint, request, url_for, session, redirect, render_template, jsonify
 from .utils import create_spotify_oauth, get_token
