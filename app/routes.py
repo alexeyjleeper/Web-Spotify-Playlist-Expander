@@ -2,6 +2,7 @@
 import spotipy
 from flask import Blueprint, request, url_for, session, redirect, render_template, jsonify
 from .utils import create_spotify_oauth, get_token
+from . import limiter
 
 main = Blueprint('main', __name__)
 
@@ -73,6 +74,7 @@ Outputs: pl_data: List[str] - id and name of currently expanding playlist
          new_recs: List[Optional[List[str]]] - list of uri, name, and artists for each new recommendation
 """
 @main.route('/customize', methods=['POST', 'GET'])
+@limiter.limiter()
 def customize():
     playlist_id = request.form.get('id')
     playlist_name = request.form.get('name')

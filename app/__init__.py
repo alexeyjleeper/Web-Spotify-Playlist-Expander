@@ -1,5 +1,8 @@
-from flask import Flask
+from flask import Flask, jsonify
 from dotenv import load_dotenv
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from flask_limiter.errors import RateLimitExceeded
 from .routes import main
 
 def create_app():
@@ -8,15 +11,36 @@ def create_app():
     app.secret_key = 'jdybmhf5h*&@#$hjf^&8744ihefohoiwehf'
     load_dotenv()
 
+    limiter = Limiter(
+        get_remote_address,  # Use client IP for rate limiting
+        app=app,
+        default_limits=["5 per 30 seconds"]  # Example default rate limit
+    )
+
     app.register_blueprint(main)
 
     @app.errorhandler(404)
     def not_found_error(error):
-        return "Page not found", 404
+        response = jsonify({"message": "Page not found"})
+        response.status_code = 404
+        return response
     
     @app.errorhandler(500)
     def internal_error(error):
-        return "Internal server error", 500
+        response = jsonify({"message": "Internal server error"})
+        response.status_code = 500
+        return response
+    
+    # init rate limit for the recommendations requests
+    @app.errorhandler(RateLimitExceeded)
+    def handle_rate_limit_error():
+        response = jsonify({
+            "error": "Rate limit exceeded",
+            "message": "The Spotify API imposes a rate limit on recommendation requests, please try again in 30 seconds"
+        })
+        response.status_code = 429
+        response.headers["Retry-After"] = 30
+        return response
     
     return app
 
