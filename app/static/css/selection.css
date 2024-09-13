@@ -91,7 +91,6 @@ body{
     height: 90%;
     z-index: 1;
     background-color: darkgrey;
-    overflow: hidden;
     transition: ease 0.25s;
     pointer-events: none;
 }
@@ -131,7 +130,7 @@ form:hover {
     font-weight: 400;
     background: transparent;
     border: none;
-    padding: 30%;
+    margin: 10%;
     font-size: .5em;
     z-index: 0;
     transition: ease 0.25s;
