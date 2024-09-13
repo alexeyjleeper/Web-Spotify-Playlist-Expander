@@ -131,7 +131,7 @@ form:hover {
     font-weight: 400;
     background: transparent;
     border: none;
-    padding: 10%;
+    padding: 30%;
     font-size: .5em;
     z-index: 0;
     transition: ease 0.25s;
