@@ -82,6 +82,7 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 form {
     min-width: 25vw;
     height: 15vh;
@@ -105,6 +106,9 @@ form {
     transition: ease 0.25s;
     color: transparent;
     border: none;
+}
+.bgBlur:hover {
+    cursor: pointer;
 }
 @media (max-width: 769px) {
     form {
