@@ -103,6 +103,7 @@ form {
     grid-template-rows: 1fr;
     font-size: 2em;
     place-items: center;
+    overflow: hidden;
 }
 @media (max-width: 769px) {
     form {
@@ -130,7 +131,7 @@ form:hover {
     font-weight: 400;
     background: transparent;
     border: none;
-    margin: 10%;
+    padding: 10%;
     font-size: .5em;
     z-index: 0;
     transition: ease 0.25s;
