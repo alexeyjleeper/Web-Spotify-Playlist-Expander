@@ -29,7 +29,7 @@ def create_spotify_oauth():
     return SpotifyOAuth(
         client_id = os.getenv('ID'),
         client_secret = os.getenv('KEY'),
-        redirect_uri = 'http://127.0.0.1:5000/redirect',
+        redirect_uri = os.getenv('REDIRECT'),
         scope = ['playlist-read-private',
                  'playlist-read-collaborative',
                  'playlist-modify-private',
