@@ -12,9 +12,9 @@ def create_app():
     load_dotenv()
 
     limiter = Limiter(
-        get_remote_address,  # Use client IP for rate limiting
+        get_remote_address,
         app=app,
-        default_limits=["5 per 30 seconds"]  # Example default rate limit
+        default_limits=["5 per 30 seconds"]
     )
 
     app.register_blueprint(main)

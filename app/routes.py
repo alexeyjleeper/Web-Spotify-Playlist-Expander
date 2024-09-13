@@ -74,7 +74,7 @@ Outputs: pl_data: List[str] - id and name of currently expanding playlist
          new_recs: List[Optional[List[str]]] - list of uri, name, and artists for each new recommendation
 """
 @main.route('/customize', methods=['POST', 'GET'])
-@limiter.limiter()
+@limiter.limit()
 def customize():
     playlist_id = request.form.get('id')
     playlist_name = request.form.get('name')
