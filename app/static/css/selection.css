@@ -93,6 +93,8 @@ body{
     background-color: darkgrey;
     transition: ease 0.25s;
     pointer-events: none;
+    color: transparent;
+    border: none;
 }
 form {
     min-width: 25vw;
