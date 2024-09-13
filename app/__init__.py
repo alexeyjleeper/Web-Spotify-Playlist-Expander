@@ -5,17 +5,18 @@ from flask_limiter.util import get_remote_address
 from flask_limiter.errors import RateLimitExceeded
 from .routes import main
 
+limiter = Limiter(
+        get_remote_address,
+        default_limits=["5 per 30 seconds"]
+    )
+
 def create_app():
     app = Flask(__name__, template_folder = './static/template', static_folder = './static')
     app.config['SESSION_COOKIE_NAME'] = 'Spotify Cookie'
     app.secret_key = 'jdybmhf5h*&@#$hjf^&8744ihefohoiwehf'
     load_dotenv()
 
-    limiter = Limiter(
-        get_remote_address,
-        app=app,
-        default_limits=["5 per 30 seconds"]
-    )
+    limiter.init_app(app)
 
     app.register_blueprint(main)
 
