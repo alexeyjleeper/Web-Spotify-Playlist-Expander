@@ -25,7 +25,7 @@ Description: Stores access token info in cookie
 def redirect_page():
     session.clear()
     code = request.args.get('code')
-    token_info = create_spotify_oauth().get_access_token(code)
+    token_info = create_spotify_oauth().get_access_token(code, True, False)
     session['token_info'] = token_info
     return redirect(url_for('main.home'))
 
