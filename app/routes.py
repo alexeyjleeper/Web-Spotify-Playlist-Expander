@@ -4,6 +4,10 @@ from .utils import create_spotify_oauth, get_token
 
 main = Blueprint('main', __name__)
 
+@main.route('/noaccess')
+def noaccess():
+    return render_template('request.html')
+
 @main.route('/')
 def frontpage():
     return render_template('frontpage.html')
