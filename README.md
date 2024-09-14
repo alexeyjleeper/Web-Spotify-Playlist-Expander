@@ -1,27 +1,27 @@
-# Web-Spotify-Playlist-Expander
-This is a music discovery tool. This project creates a new custom playlist based on the first five songs of a selected playlist. The playlist is generated using the spotify web api recommendations tool. The number of songs on the new playlist, tempo, popularity, instrumentalness, danceability, and valence of the songs on the playlist are customizeable.
+# Welcome to the Spotify Playlist Expander
+This is tool allows the user to (1) generate recommendations based on the first five songs of an app, (2) add songs to the selected playlist, and (3) play recommended songs from the app. The popularity, instrumentalness, danceability, valence, and batch size of the recommended songs are customizable with user inputs.
 
-# Home Page
-Allows user to choose a playlist on their Spotify profile to "expand"
-![home page with scrollable playlists list](screenshots/home.png)
+# UML Sequence Diagram
+![UML Sequence Diagram](UML_sequence.jpeg)
 
-# Customization Page
-Provides user with multiple customization options and specifies limits
-![customization page](screenshots/customize.png)
+# Installation
 
-After hitting submit "playlist name"_expand1 is created on the user's Spotify profile
-![after customization submit](screenshots/success.png)
+## Install dependencies
 
-Functionality to order multiple expansions of the same playlist
-![multiple expansions with same playlist](screenshots/multiple.png)
+> pip install -r requirments.txt
 
- # Local Setup:
------requires spotify account-----
-1. go to developer.spotify.com and create app with http://127.0.0.1:5000/redirect redirect uri to get required api client id and key used in SEapp.py (lines 245, 246)
-2. create venv and install flask and spotipy, alternatively, install flask and spotipy on your system
-3. navigate to directory in the terminal and run: python SEapp.py
-4. open http://127.0.0.1:5000 in browser
+## Configure environment variables
 
-built with:
-flask 2.3.3
-spotipy 2.23.0
+set ID to your Client ID from the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+
+set KEY to your Client secret from the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+
+set REDIRECT to your the redirect endpoint, http://localhost:5000/redirect if developing locally
+
+set Redirect URI in the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) to your redirect endpoint
+
+set FLASK_APP to app
+
+## Run app
+
+> flask run
