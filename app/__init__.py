@@ -4,6 +4,7 @@ from .routes import main
 
 def create_app():
     app = Flask(__name__, template_folder = './static/template', static_folder = './static')
+    app.config['SESSION_TYPE'] = 'filesystem'
     app.config['SESSION_COOKIE_NAME'] = 'Spotify Cookie'
     app.secret_key = 'jdybmhf5h*&@#$hjf^&8744ihefohoiwehf'
     load_dotenv()
