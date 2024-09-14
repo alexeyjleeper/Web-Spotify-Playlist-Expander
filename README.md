@@ -2,15 +2,15 @@
 This is tool allows the user to (1) generate recommendations based on the first five songs of an app, (2) add songs to the selected playlist, and (3) play recommended songs from the app. The popularity, instrumentalness, danceability, valence, and batch size of the recommended songs are customizable with user inputs.
 
 # UML Sequence Diagram
-![UML Sequence Diagram](UML_sequence.jpeg)
+![UML Sequence Diagram](readme_images/UML_sequence.jpeg)
 
 # Installation
 
-## Install dependencies
+## Install Dependencies
 
 > pip install -r requirments.txt
 
-## Configure environment variables
+## Configure Environment Variables
 
 set ID to your Client ID from the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
 
@@ -22,6 +22,17 @@ set Redirect URI in the [Spotify Developer Dashboard](https://developer.spotify.
 
 set FLASK_APP to app
 
-## Run app
+## Run App
 
 > flask run
+
+# Preview
+
+Front Page
+![Frontpage.hmtl Preview](readme_images/frontpage.png)
+
+Selection Page
+![Selection.html Preview](readme_images/selection.png)
+
+Customize Page
+![Customize.html Preview](readme_images/customize.png)
