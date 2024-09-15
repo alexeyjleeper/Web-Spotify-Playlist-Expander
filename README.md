@@ -1,5 +1,5 @@
 # Welcome to the Spotify Playlist Expander
-This is tool allows the user to (1) generate recommendations based on the first five songs of an app, (2) add songs to the selected playlist, and (3) play recommended songs from the app. The popularity, instrumentalness, danceability, valence, and batch size of the recommended songs are customizable with user inputs.
+This is tool allows the user to (1) generate recommendations based on the first five songs of an app, (2) add songs to the selected playlist, and (3) play recommended songs from the app. The tempo, popularity, instrumentalness, danceability, valence, and batch size of the recommended songs are customizable with user inputs.
 
 # UML Sequence Diagram
 ![UML Sequence Diagram](readme_images/UML_sequence.jpeg)
