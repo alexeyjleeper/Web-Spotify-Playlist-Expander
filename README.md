@@ -6,6 +6,9 @@ This is tool allows the user to (1) generate recommendations based on the first 
 
 # Installation
 
+built with:  
+python3.11
+
 ## Install Dependencies
 
 > pip install -r requirments.txt
